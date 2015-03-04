@@ -1,54 +1,35 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
+import wx
 
-# C extensions
-*.so
+class windowClass(wx.Frame):
+    
+    def __init__(self, *args, **kwargs):
+        super(windowClass, self).__init__(*args, **kwargs) 
 
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
+        self.basicGUI()
+       
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+    def basicGUI(self):
+        menuBar = wx.MenuBar()
+        fileButton = wx.Menu()
+        exitItem = fileButton.Append(wx.ID_EXIT, 'Exit','status msg...')
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.cache
-nosetests.xml
-coverage.xml
+        menuBar.Append(fileButton, 'File')
 
-# Translations
-*.mo
-*.pot
+        self.SetMenuBar(menuBar)
 
-# Django stuff:
-*.log
+        self.Bind(wx.EVT_MENU, self.Quit, exitItem)
+        
+        self.SetTitle('Epic Window')
+        self.Show(True)
 
-# Sphinx documentation
-docs/_build/
+    def Quit(self, e):
+        self.Close()
 
-# PyBuilder
-target/
+def main():
+    app = wx.App()
+    windowClass(None)
+
+    app.MainLoop()
+
+main()
