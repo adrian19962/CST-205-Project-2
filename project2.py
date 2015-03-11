@@ -17,6 +17,13 @@ class windowClass(wx.Frame):
         exitItem = fileButton.Append(wx.ID_EXIT, 'Quit\tCtrl+Q')
         exitItem.SetBitmap(wx.Bitmap(#enter pic address here))
         fileButton.AppendItem(exitItem)
+                                     
+        button=wx.Button(panel,label="Filter",pos=(130,10),size=(60,60))
+        self.Bind(wx.EVT_BUTTON, self.filter, button)
+                                     
+    def filter(self,event):
+        #Enter filter code
+                             
 
         menuBar.Append(fileButton, 'File')
         menuBar.Append(editButton, 'Edit')
