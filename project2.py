@@ -1,7 +1,7 @@
 import wx
 
 class windowClass(wx.Frame):
-    
+class bucky(wx.Frame):
     def __init__(self, *args, **kwargs):
         super(windowClass, self).__init__(*args, **kwargs) 
 
